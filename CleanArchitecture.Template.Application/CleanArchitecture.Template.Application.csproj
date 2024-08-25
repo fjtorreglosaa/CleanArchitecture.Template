@@ -7,11 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.35" />
     <PackageReference Include="MediatR" Version="12.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CleanArchitecture.Template.Domain\CleanArchitecture.Template.Domain.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Template.Infrastructure\CleanArchitecture.Template.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Mappings\" />
   </ItemGroup>
 
 </Project>

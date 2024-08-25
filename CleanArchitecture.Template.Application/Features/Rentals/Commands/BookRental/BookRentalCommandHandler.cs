@@ -1,22 +1,22 @@
 ﻿using CleanArchitecture.Template.Application.Abstractions.Clock;
 using CleanArchitecture.Template.Application.Abstractions.Messaging.Commands;
 using CleanArchitecture.Template.Domain.Abstractions;
-using CleanArchitecture.Template.Domain.Abstractions.UnitOfWork;
 using CleanArchitecture.Template.Domain.DomainModels.Rentals;
 using CleanArchitecture.Template.Domain.DomainModels.RentalVehicles;
 using CleanArchitecture.Template.Domain.DomainModels.Users;
 using CleanArchitecture.Template.Domain.DomainServices.Shared;
 using CleanArchitecture.Template.Domain.ValueObjects.Rentals;
+using CleanArchitecture.Template.Infrastructure.Abstractions.EFCore;
 
 namespace CleanArchitecture.Template.Application.Features.Rentals.Commands.BookRental
 {
     internal sealed class BookRentalCommandHandler : ICommandHandler<BookRentalCommand, Guid>
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IEFCoreUnitOfWork _unitOfWork;
         private readonly IDateTimeProvider _dateTimeProvider;
         private readonly PriceDomainService _priceDomainService;
 
-        public BookRentalCommandHandler(IUnitOfWork unitOfWork, IDateTimeProvider dateTimeProvider, PriceDomainService priceDomainService)
+        public BookRentalCommandHandler(IEFCoreUnitOfWork unitOfWork, IDateTimeProvider dateTimeProvider, PriceDomainService priceDomainService)
         {
             _unitOfWork = unitOfWork;
             _dateTimeProvider = dateTimeProvider;
@@ -58,7 +58,7 @@ namespace CleanArchitecture.Template.Application.Features.Rentals.Commands.BookR
             );
 
             await _unitOfWork.RentalRepository.AddAsync(rental);
-            await _unitOfWork.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChanges(cancellationToken);
 
             return rental.Id;
         }

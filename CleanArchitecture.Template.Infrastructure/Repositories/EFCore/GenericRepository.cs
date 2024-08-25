@@ -1,11 +1,11 @@
-﻿using CleanArchitecture.Template.Domain.Abstractions;
-using CleanArchitecture.Template.Domain.Abstractions.Repositories;
+﻿using CleanArchitecture.Template.Domain.Abstractions.Repositories;
 using CleanArchitecture.Template.Infrastructure.Contexts;
+using CleanArchitecture.Template.Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.Template.Infrastructure.Repositories.EFCore
 {
-    internal abstract class GenericRepository<T> : IGenericRepository<T> where T : Entity
+    public abstract class GenericRepository<T> : IGenericRepository<T> where T : Entity
     {
         private readonly ApplicationDbContext _context;
 

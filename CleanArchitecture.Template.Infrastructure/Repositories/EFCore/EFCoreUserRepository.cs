@@ -1,6 +1,6 @@
 ﻿namespace CleanArchitecture.Template.Infrastructure.Repositories.EFCore
 {
-    internal class UserRepository
+    internal class EFCoreUserRepository
     {
     }
 }

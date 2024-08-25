@@ -2,7 +2,7 @@
 
 namespace CleanArchitecture.Template.Domain.Abstractions.Repositories
 {
-    public interface IRentalVehicleRepository : IGenericRepository<RentalVehicle>
+    public interface IRentalVehicleRepository
     {
     }
 }

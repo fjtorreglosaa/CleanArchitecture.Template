@@ -1,16 +1,16 @@
 ﻿using CleanArchitecture.Template.Application.Abstractions.Email;
-using CleanArchitecture.Template.Domain.Abstractions.UnitOfWork;
 using CleanArchitecture.Template.Domain.DomainEvents.Rentals;
+using CleanArchitecture.Template.Infrastructure.Abstractions.EFCore;
 using MediatR;
 
 namespace CleanArchitecture.Template.Application.Features.Rentals.Commands.BookRental.Events
 {
     internal sealed class BookRentalDomainEventHandler : INotificationHandler<RentalReserveDomainEvent>
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IEFCoreUnitOfWork _unitOfWork;
         private readonly IEmailService _emailService;
 
-        public BookRentalDomainEventHandler(IUnitOfWork unitOfWork, IEmailService emailService)
+        public BookRentalDomainEventHandler(IEFCoreUnitOfWork unitOfWork, IEmailService emailService)
         {
             _unitOfWork = unitOfWork;
             _emailService = emailService;

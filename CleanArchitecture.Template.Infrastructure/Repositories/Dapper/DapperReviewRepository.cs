@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CleanArchitecture.Template.Infrastructure.Repositories.EFCore
 {
-    internal class ReviewRepository
+    internal class DapperReviewRepository
     {
     }
 }

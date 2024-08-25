@@ -4,7 +4,7 @@ using CleanArchitecture.Template.Domain.ValueObjects.Rentals;
 
 namespace CleanArchitecture.Template.Domain.Abstractions.Repositories
 {
-    public interface IRentalRepository : IGenericRepository<Rental>
+    public interface IRentalRepository
     {
         Task<bool> IsOverlappingAsync(RentalVehicle vehicle, DateRange duration, CancellationToken cancellationToken);
     }

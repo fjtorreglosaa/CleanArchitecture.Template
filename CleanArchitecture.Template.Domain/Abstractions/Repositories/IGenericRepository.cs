@@ -1,6 +1,6 @@
 ﻿namespace CleanArchitecture.Template.Domain.Abstractions.Repositories
 {
-    public interface IGenericRepository<T> where T : Entity
+    public interface IGenericRepository<T> where T : class
     {
         IQueryable<T> GetAll(CancellationToken cancellationToken = default);
         Task<IReadOnlyList<T>> GetAllAsync(CancellationToken cancellationToken = default);
