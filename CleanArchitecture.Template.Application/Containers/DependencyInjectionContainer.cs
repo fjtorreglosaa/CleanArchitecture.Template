@@ -1,5 +1,7 @@
-﻿using CleanArchitecture.Template.Domain.DomainServices.Shared;
+﻿using CleanArchitecture.Template.Application.Abstractions.Behaviors;
+using CleanArchitecture.Template.Domain.DomainServices.Shared;
 using Microsoft.Extensions.DependencyInjection;
+using FluentValidation;
 
 namespace CleanArchitecture.Template.Application.Containers
 {
@@ -10,7 +12,11 @@ namespace CleanArchitecture.Template.Application.Containers
             services.AddMediatR(configuration =>
             {
                 configuration.RegisterServicesFromAssembly(typeof(DependencyInjectionContainer).Assembly);
+                configuration.AddOpenBehavior(typeof(LoggingBehavior<,>));
+                configuration.AddOpenBehavior(typeof(ValidationBehavior<,>));
             });
+
+            services.AddValidatorsFromAssembly(typeof(DependencyInjectionContainer).Assembly);
 
             services.AddTransient<PriceDomainService>();
 

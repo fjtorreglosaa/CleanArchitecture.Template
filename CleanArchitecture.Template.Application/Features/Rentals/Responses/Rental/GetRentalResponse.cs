@@ -14,8 +14,8 @@
         public string? CurrencyTypeForAccessories { get; set; }
         public decimal TotalPrice { get; set; }
         public string? CurrencyTypeForTotalPrice { get; set; }
-        public DateOnly StartDate { get; set; }
-        public DateOnly EndDate { get; set; }
+        public DateOnly Start { get; set; }
+        public DateOnly End { get; set; }
         public DateTime CreatedDate { get; set; }
     }
 }
